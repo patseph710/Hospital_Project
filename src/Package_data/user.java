@@ -41,10 +41,7 @@ public class user implements Serializable{
 		
 	}
 	
-	public String get_Password()
-	{
-		return this.password;	
-	}
+
 	
 
 }

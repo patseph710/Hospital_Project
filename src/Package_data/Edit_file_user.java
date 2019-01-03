@@ -62,9 +62,6 @@ public class Edit_file_user implements Serializable
 		String str="";
 		try 
 		{
-			
-			
-			
 			//read
 			FileInputStream fi = new FileInputStream("userfile.txt");
 			ObjectInputStream oi = new ObjectInputStream(fi);

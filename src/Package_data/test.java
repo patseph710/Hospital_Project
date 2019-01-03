@@ -6,15 +6,11 @@ public class test
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		System.out.println("hello world");
+	
 		User_bag bag=new User_bag();
-		//user a=new user("new","stuff");
-	
-
-	//	System.out.println(""+bag.FiletoString());
-	
+		user newuser=new user("df","sdf");
 		
-		
+		System.out.println(bag.is_in_userbag(newuser));
 		
 	}
 

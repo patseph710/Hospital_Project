@@ -1,10 +1,16 @@
 package Package_data;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class User_bag implements Serializable{
 	
@@ -14,9 +20,29 @@ public class User_bag implements Serializable{
 	private static final long serialVersionUID = 1L;
 	Edit_file_user user_file=new Edit_file_user();	
 	ArrayList<user> listuser=new ArrayList<user>();
-	public User_bag() {}
 	
+	public User_bag() 
+	{
+		try 
+		{
+			//read
+			FileInputStream fi = new FileInputStream("userfile.txt");
+			ObjectInputStream oi = new ObjectInputStream(fi);
+			User_bag userbag = (User_bag) oi.readObject();
+			this.listuser=userbag.listuser;
+			oi.close();
+			fi.close();
 	
+		} catch (FileNotFoundException e1) {
+			System.out.println("File not found");
+		} catch (IOException e2) {
+			System.out.println("Error initializing stream");
+			e2.printStackTrace();
+		} catch (ClassNotFoundException e3) {
+			e3.printStackTrace();
+		}
+		
+	}
 	
 	//will add newuser to ArrayList listuser
 	//and will add newuser to the file user.txt  
@@ -27,6 +53,8 @@ public class User_bag implements Serializable{
 		user_file.add_to_File(newuser);
 	
 	}
+	
+
 	public String FiletoString()
 	{
 		return user_file.FiletoString();
@@ -41,7 +69,31 @@ public class User_bag implements Serializable{
 		return now_time;
 	}
 	
+	public boolean is_in_userbag(user newuser)
+	{
+	
+		
+		
+		
+	
+		for(int i = 0; i < listuser.size(); i++)
+		{
 
+			String this_user=listuser.get(i).get_username();
+			String this_password=listuser.get(i).get_password();
+		
+			
+			
+			if(this_user.equals(newuser.get_username())
+				&& this_password.equals(newuser.get_password()))
+					{
+				
+						return true;
+					}
+        }
+	
+		return false;	
+	}
 
 
 	//will show all the usernames and passwords in arraylist "userlist"
@@ -52,17 +104,9 @@ public class User_bag implements Serializable{
 		String str="";
 		for(int i = 0; i < listuser.size(); i++)
 		{
-//            str=str+(i+1)+". Username:"+listuser.get(i).get_username()+
-//            			  " Password:"+listuser.get(i).get_password()+
-//            			  "         Time:"+listuser.get(i).get_last_log_in()+"\n";  	
-            
-			 str=str+ String.format("Username:%.44s  Password:%.44s  Time:%.50s \n",listuser.get(i).get_username(),listuser.get(i).get_Password(),
+ 
+			 str=str+ String.format("Username:%.44s  Password:%.44s  Time:%.50s \n",listuser.get(i).get_username(),listuser.get(i).get_password(),
 					 listuser.get(i).get_last_log_in() ); 
-            
-            
-            
-            
-            
             
             }
 		return str;
