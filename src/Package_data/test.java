@@ -11,7 +11,7 @@ public class test
 		User_bag bag=new User_bag();
 		user newuser=new user("df","sdf");
 		
-		System.out.println(bag.is_in_userbag(newuser));
+		//System.out.println(bag.is_in_userbag(newuser));
 		
 	}
 
