@@ -71,11 +71,6 @@ public class User_bag implements Serializable{
 	
 	public boolean is_in_userbag(user newuser)
 	{
-	
-		
-		
-		
-	
 		for(int i = 0; i < listuser.size(); i++)
 		{
 
@@ -94,6 +89,30 @@ public class User_bag implements Serializable{
 	
 		return false;	
 	}
+	
+	public boolean user_is_unique(user newuser)
+	{
+		for(int i = 0; i < listuser.size(); i++)
+		{
+
+			String this_username=listuser.get(i).get_username();
+			String this_password=listuser.get(i).get_password();
+		
+			
+			
+			if(this_username.equals(newuser.get_username()))				
+						return false;
+					
+        }
+
+		return true;
+		
+		
+		
+	}
+	
+	
+	
 
 
 	//will show all the usernames and passwords in arraylist "userlist"
