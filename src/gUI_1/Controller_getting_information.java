@@ -2,8 +2,10 @@ package gUI_1;
 
 import java.io.IOException;
 
+import Package_data.Game;
+import Package_data.Game_bag;
+import Package_data.Temporary_content;
 import Package_data.User_bag;
-import Package_data.keep_user_Object;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,19 +52,30 @@ public class Controller_getting_information
 	
 	@FXML
 	public void Start_Experiment()
-	{
+	{	
+		System.out.println("username:"+Temporary_content.get_user().get_username());
+		
+
+		
+		Game newgame=new Game(Integer.parseInt(id_num_textfield.getText()),
+				Integer.parseInt( Code_num_textfield.getText()),
+				Game_choicebox.getValue().toString()
+				,time_elapse_choicebox.getValue().toString(),
+				User_bag.get_Time_and_Date());
+			
+		
+		Temporary_content.set_game(newgame);
+			
 		
 		
-		keep_user_Object.get_user().set_Id_Num(Integer.parseInt(id_num_textfield.getText()));
-		keep_user_Object.get_user().set_code_num(Integer.parseInt(Code_num_textfield.getText()));
-	
 		
 		
-		System.out.println("usernmae:"+keep_user_Object.get_user().get_username());
-		System.out.println("id num:"+id_num_textfield.getText());
-		System.out.println("code num:"+Code_num_textfield.getText());
-		System.out.println("Game:"+Game_choicebox.getValue());
-		System.out.println("Time elapse"+Integer.parseInt(time_elapse_choicebox.getValue()));
+		
+		System.out.println("id num:"+Temporary_content.get_game().get_id_num());
+		System.out.println("code num:"+Temporary_content.get_game().get_code_num());
+		System.out.println("Game:"+Temporary_content.get_game().get_game_name());
+		System.out.println("Time elapse:"+Temporary_content.get_game().get_time_elapsed());
+		System.out.println("Date:"+Temporary_content.get_game().get_date());
 		
 	}
 	

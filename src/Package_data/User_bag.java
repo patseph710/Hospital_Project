@@ -1,28 +1,55 @@
 package Package_data;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+
+
 public class User_bag implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	Edit_file_user user_file=new Edit_file_user();	
 	ArrayList<user> listuser=new ArrayList<user>();
 	
+	public User_bag(int i ) {}
 	public User_bag() 
 	{
+		File file=new File("userfile.txt");
+		//User_bag bag=new User_bag(2);
+		if(file.exists()==false)
+		{
+		
+			try 
+			{	
+				//write(creates new binary file) 
+				FileOutputStream f = new FileOutputStream("userfile.txt");
+				ObjectOutputStream o = new ObjectOutputStream(f);
+				o.writeObject(new User_bag());
+			
+				o.close();
+				f.close();
+			} catch (FileNotFoundException e1) {
+				System.out.println("File not found");
+			} catch (IOException e2) {
+				System.out.println("2.Error initializing stream");
+				e2.printStackTrace();
+			}
+			
+			
+		}
+	
+		
 		try 
 		{
 			//read
@@ -36,7 +63,7 @@ public class User_bag implements Serializable{
 		} catch (FileNotFoundException e1) {
 			System.out.println("File not found");
 		} catch (IOException e2) {
-			System.out.println("Error initializing stream");
+			System.out.println("1.Error initializing stream");
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e3) {
 			e3.printStackTrace();
@@ -120,7 +147,9 @@ public class User_bag implements Serializable{
 		for(int i = 0; i < listuser.size(); i++)
 		{
  
-			 str=str+ String.format("Username:%.44s  Password:%.44s  Time:%.50s \n",listuser.get(i).get_username(),listuser.get(i).get_password(),
+			 str=str+ String.format("Username:%.44s  Password:%.44s  Time:%.50s \n",
+					 listuser.get(i).get_username(),
+					 listuser.get(i).get_password(),
 					 listuser.get(i).get_last_log_in() ); 
             
             }

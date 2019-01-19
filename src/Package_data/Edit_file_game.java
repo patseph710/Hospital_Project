@@ -9,66 +9,61 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Edit_file_user implements Serializable 
+public class Edit_file_game implements Serializable
 {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-
-
-	public Edit_file_user() {}
-	public void add_to_File(user newuser)
+	public Edit_file_game() {}
+	
+	public void add_to_file(Game newgame) 
 	{
-		
 
 		try 
 		{	
 			//read
 			
-			FileInputStream fi = new FileInputStream("userfile.txt");
+			FileInputStream fi = new FileInputStream("gamefile.txt");
 			
 			ObjectInputStream oi = new ObjectInputStream(fi);
 		
-			User_bag userbag = (User_bag) oi.readObject();
+			Game_bag gamebag = (Game_bag) oi.readObject();
 
-			userbag.listuser.add(newuser);
+			gamebag.listgame.add(newgame);
 			oi.close();
 			fi.close();
 			
 			//Write
-			FileOutputStream f = new FileOutputStream("userfile.txt");
+			FileOutputStream f = new FileOutputStream("gamefile.txt");
 			ObjectOutputStream o = new ObjectOutputStream(f);
-			o.writeObject(userbag);
+			o.writeObject(gamebag);
 		
 			o.close();
 			f.close();
 		} catch (FileNotFoundException e1) {
 			System.out.println("File not found");
 		} catch (IOException e2) {
-			System.out.println("2.Error initializing stream");
+			System.out.println("Edit_FIle_game");
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e3) {
 			e3.printStackTrace();
 		}
-	
-	
+		
+		
+		
 	}
 	
-	
-	
-	//will show all the usernames 
-	//and passwords in binaryfile "usertxt"
 	public String FiletoString()
 	{
 		String str="";
 		try 
 		{
 			//read
-			FileInputStream fi = new FileInputStream("userfile.txt");
+			FileInputStream fi = new FileInputStream("gamefile.txt");
 			ObjectInputStream oi = new ObjectInputStream(fi);
-			User_bag userbag = (User_bag) oi.readObject();
+			Game_bag userbag = (Game_bag) oi.readObject();
 			str=userbag.toString();
 			oi.close();
 			fi.close();
@@ -82,8 +77,6 @@ public class Edit_file_user implements Serializable
 			e3.printStackTrace();
 		}
 		return str;
-		
 	}
-	
-	
+
 }
