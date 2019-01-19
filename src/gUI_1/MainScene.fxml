@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gUI_1.Controller">
    <children>
@@ -36,7 +37,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="285.0" prefWidth="296.0">
                <children>
-                  <TextArea prefHeight="370.0" prefWidth="296.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing &#10;elit. Suspendisse est eros, eleifend a ornare vitae,&#10; dignissim eget odio. Aliquam efficitur felis sit amet&#10; ullamcorper tincidunt. Suspendisse semper nisi sed&#10; nunc molestie venenatis. Duis nisl justo, tincidunt at&#10; nibh at, fermentum commodo dolor. Mauris posuere&#10; faucibus consequat. Donec maximus eleifend massa&#10; nec tincidunt. Sed blandit felis velit, vel varius orci&#10; bibendum nec. Suspendisse aliquam augue nec&#10; enim cursus, non aliquam ipsum pharetra." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TextArea fx:id="text_area" prefHeight="370.0" prefWidth="296.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing &#10;elit. Suspendisse est eros, eleifend a ornare vitae,&#10; dignissim eget odio. Aliquam efficitur felis sit amet&#10; ullamcorper tincidunt. Suspendisse semper nisi sed&#10; nunc molestie venenatis. Duis nisl justo, tincidunt at&#10; nibh at, fermentum commodo dolor. Mauris posuere&#10; faucibus consequat. Donec maximus eleifend massa&#10; nec tincidunt. Sed blandit felis velit, vel varius orci&#10; bibendum nec. Suspendisse aliquam augue nec&#10; enim cursus, non aliquam ipsum pharetra." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -55,6 +56,7 @@
                   <TextField fx:id="password_textfield" layoutX="17.0" layoutY="124.0" prefHeight="25.0" prefWidth="142.0" />
                   <Button fx:id="Log_in_btn" layoutX="16.0" layoutY="180.0" mnemonicParsing="false" onAction="#Log_in" text="Log In" />
                   <Button fx:id="register_btn" layoutX="16.0" layoutY="214.0" mnemonicParsing="false" onAction="#Register_page" text="Register" />
+                  <Text fx:id="hidden_text" layoutX="15.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong username or password" visible="false" />
                </children>
             </AnchorPane>
         </items>

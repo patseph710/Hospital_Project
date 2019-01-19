@@ -48,18 +48,17 @@ public class Controller_Registering_page
 		
 		if(password_textfield.getText().equals(Confirm_password_textfield.getText()))
 		{
-			
-			
+	
 			if(bag.user_is_unique(new user(username_textfield.getText(),password_textfield.getText()))==true)		//checks for another user with the same
 			{																										//username
 				
 				
-//				bag.add(new user(username_textfield.getText(),password_textfield.getText()));
-			//Switches to Log in page
-//				Stage stage = (Stage) register_btn.getScene().getWindow();
-//				AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-//				Scene scene= new Scene(pane,500,500);
-//			    stage.setScene(scene);
+				bag.add(new user(username_textfield.getText(),password_textfield.getText()));
+	//		Switches to Log in page
+				Stage stage = (Stage) register_btn.getScene().getWindow();
+				AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+				Scene scene= new Scene(pane,500,500);
+			    stage.setScene(scene);
 			}
 			else
 			{

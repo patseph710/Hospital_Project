@@ -53,7 +53,12 @@ public class User_bag implements Serializable{
 		user_file.add_to_File(newuser);
 	
 	}
+	public ArrayList<user> getlistuser()
+	{
+		return this.listuser;
+	}
 	
+
 
 	public String FiletoString()
 	{
@@ -76,7 +81,7 @@ public class User_bag implements Serializable{
 
 			String this_user=listuser.get(i).get_username();
 			String this_password=listuser.get(i).get_password();
-		
+			listuser.get(i).set_index_num(i);
 			
 			
 			if(this_user.equals(newuser.get_username())
@@ -95,20 +100,11 @@ public class User_bag implements Serializable{
 		for(int i = 0; i < listuser.size(); i++)
 		{
 
-			String this_username=listuser.get(i).get_username();
-			String this_password=listuser.get(i).get_password();
-		
-			
-			
+			String this_username=listuser.get(i).get_username();			
 			if(this_username.equals(newuser.get_username()))				
-						return false;
-					
+						return false;		
         }
-
 		return true;
-		
-		
-		
 	}
 	
 	

@@ -1,4 +1,5 @@
 package gUI_1;
+import Package_data.user;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -8,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) 
+	{
+		user newuser;
 		try {
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 			Scene scene = new Scene(root,400,400);
