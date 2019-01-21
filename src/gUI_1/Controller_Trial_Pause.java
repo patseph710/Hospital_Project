@@ -60,7 +60,12 @@ public class Controller_Trial_Pause implements Initializable
 	@Override
 	public void initialize(URL url, ResourceBundle rb) 
 	{
-		seconds=10;
+		Temporary_content.get_game().set_trial_num(
+				Temporary_content.get_game().get_trial_num()+1);
+		
+		text1.setText("Trial "+Temporary_content.get_game().get_trial_num()+" Over");
+		
+		seconds=5;
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> {
 			try {
 				updateTime();

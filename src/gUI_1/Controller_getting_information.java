@@ -39,7 +39,7 @@ public class Controller_getting_information
 	@FXML
 	private void initialize()
 	{
-		Game_choicebox.setValue("02 seconds");
+		Game_choicebox.setValue("2");
 		Game_choicebox.setItems(FXCollections.observableArrayList("Game 1","Game 2","Game 3","Game 4"));
 		time_elapse_choicebox.setItems(FXCollections.observableArrayList("2","20","30","60"));
 	}
@@ -53,6 +53,11 @@ public class Controller_getting_information
 				Game_choicebox.getValue().toString(),									   //game_choice
 				Integer.parseInt(time_elapse_choicebox.getValue().toString()),			   //time_elapsed
 				User_bag.get_Time_and_Date()));											   //Date
+			
+		
+		
+		
+		Temporary_content.get_game().set_total_time_elapsed(10*Integer.parseInt(time_elapse_choicebox.getValue().toString()));
 			
 		Stage stage = (Stage) back_btn.getScene().getWindow();
 		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("Experiment_page.fxml"));

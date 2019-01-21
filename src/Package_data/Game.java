@@ -14,6 +14,9 @@ public class Game implements Serializable
 	private String Date;
 	private int num_btn_clicked=0;
 	private String Game_name;
+	private int minutes;
+	private int seconds;
+	private int trial_num;
 	
 	public Game(int id_num,int code_num,String Game_name,
 				int time_elapsed,String Date )
@@ -24,6 +27,16 @@ public class Game implements Serializable
 		this.Game_name=Game_name;
 		
 		this.Date=Date;
+	}
+	
+	public int get_trial_num()
+	{
+		return this.trial_num;
+	}
+	
+	public void set_trial_num(int _trial_num)
+	{
+		this.trial_num=_trial_num;
 	}
 	
 	
@@ -57,18 +70,23 @@ public class Game implements Serializable
 		this.Date=Date;
 	}
 	
+	
 	public String get_total_time_elapsed()
 	{
-		return this.total_time_elapsed;
+		String minutesformatted = String.format("%02d", minutes);			
+		String secondsformatted = String.format("%02d", seconds);
+		return (minutesformatted+":"+secondsformatted);
 	}
 	
-	public void set_total_time_elapsed(String total_time_elapsed)
+	public void set_total_time_elapsed(int total_time_in_seconds)
 	{
-		this.total_time_elapsed=total_time_elapsed;
+		//seconds to minutes
+		 minutes= total_time_in_seconds/60;
+		double s=total_time_in_seconds/60.0 -minutes;
+		s=s*60;
+		 seconds=(int) s;
 	}
-	
-	
-	
+
 	public int get_time_elapsed()
 	{
 		return this.time_elapsed;
@@ -109,8 +127,5 @@ public class Game implements Serializable
 	{
 		this.Game_name=Game_name;
 	}
-	
-	
-	
 	
 }

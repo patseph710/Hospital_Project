@@ -9,12 +9,12 @@
    <children>
       <AnchorPane layoutX="-306.0" layoutY="-289.0" prefHeight="534.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text layoutX="228.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trial Over">
+            <Text fx:id="text1" layoutX="228.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trial Over">
                <font>
                   <Font size="30.0" />
                </font>
             </Text>
-            <Text layoutX="189.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wait until next trial in ">
+            <Text fx:id="text2" layoutX="189.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wait until next trial in ">
                <font>
                   <Font size="21.0" />
                </font>

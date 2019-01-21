@@ -35,6 +35,7 @@ public class Controller_Experiment implements Initializable
     private static int minutes; 
     private Timeline timeline;
     private final IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
+    
 
     @FXML
     private Label timerLabel;
