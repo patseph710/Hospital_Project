@@ -44,68 +44,29 @@ public class Controller_getting_information
 		time_elapse_choicebox.setItems(FXCollections.observableArrayList("2","20","30","60"));
 	}
 
-
-	
-	
-	
-	
-	
 	@FXML
-	public void Start_Experiment()
+	public void Start_Experiment() throws IOException
 	{	
-		System.out.println("username:"+Temporary_content.get_user().get_username());
-		
 
-		
-		Game newgame=new Game(Integer.parseInt(id_num_textfield.getText()),
-				Integer.parseInt( Code_num_textfield.getText()),
-				Game_choicebox.getValue().toString()
-				,time_elapse_choicebox.getValue().toString(),
-				User_bag.get_Time_and_Date());
+		Temporary_content.set_game(new Game(Integer.parseInt(id_num_textfield.getText()),  //id_num
+				Integer.parseInt( Code_num_textfield.getText()),						   //code_num
+				Game_choicebox.getValue().toString(),									   //game_choice
+				Integer.parseInt(time_elapse_choicebox.getValue().toString()),			   //time_elapsed
+				User_bag.get_Time_and_Date()));											   //Date
 			
-		
-		Temporary_content.set_game(newgame);
-			
-		
-		
-		
-		
-		
-		System.out.println("id num:"+Temporary_content.get_game().get_id_num());
-		System.out.println("code num:"+Temporary_content.get_game().get_code_num());
-		System.out.println("Game:"+Temporary_content.get_game().get_game_name());
-		System.out.println("Time elapse:"+Temporary_content.get_game().get_time_elapsed());
-		System.out.println("Date:"+Temporary_content.get_game().get_date());
-		
+		Stage stage = (Stage) back_btn.getScene().getWindow();
+		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("Experiment_page.fxml"));
+		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
+	    stage.setScene(scene);		
 	}
 	
 
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@FXML
 	public void Go_back_page() throws IOException
 	{
 		Stage stage = (Stage) back_btn.getScene().getWindow();
 		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-//		root.getChildren().setAll(pane);
 		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
-	    stage.setScene(scene);
-//		
+	    stage.setScene(scene);		
 	}
 }

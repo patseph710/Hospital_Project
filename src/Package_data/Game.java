@@ -9,13 +9,14 @@ public class Game implements Serializable
 	private int line_num;
 	private int id_num;
 	private int code_num;
-	private String time_elapsed;
+	private int time_elapsed;
 	private String total_time_elapsed;
 	private String Date;
+	private int num_btn_clicked=0;
 	private String Game_name;
 	
 	public Game(int id_num,int code_num,String Game_name,
-				String time_elapsed,String Date )
+				int time_elapsed,String Date )
 	{
 		this.id_num=id_num;
 		this.code_num=code_num;
@@ -26,7 +27,15 @@ public class Game implements Serializable
 	}
 	
 	
+	public int getnum_btn_clicked()
+	{
+		return this.num_btn_clicked;
+	}
 	
+	public void setnum_btn_clicked(int num_btn_clicked)
+	{
+		this.num_btn_clicked=num_btn_clicked;
+	}
 	
 	public int get_id_num()
 	{
@@ -60,12 +69,12 @@ public class Game implements Serializable
 	
 	
 	
-	public String get_time_elapsed()
+	public int get_time_elapsed()
 	{
 		return this.time_elapsed;
 	}
 	
-	public void set_time_elapsed(String time_elapsed)
+	public void set_time_elapsed(int time_elapsed)
 	{
 		this.time_elapsed=time_elapsed;
 	}

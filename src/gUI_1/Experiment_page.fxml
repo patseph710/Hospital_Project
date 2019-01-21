@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="534.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gUI_1.Controller_Experiment">
+   <children>
+      <AnchorPane layoutX="-14.0" prefHeight="534.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="button" layoutX="240.0" layoutY="398.0" mnemonicParsing="false" onAction="#handle" prefHeight="43.0" prefWidth="106.0" text="Click me" />
+            <ImageView fx:id="Light_On_image" fitHeight="344.0" fitWidth="342.0" layoutX="167.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/OnBulbRoundYel.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Light_Off_image" fitHeight="361.0" fitWidth="253.0" layoutX="167.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/OffBulbRound.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="timerLabel" layoutX="467.0" layoutY="28.0" text="Loading">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,5 +1,6 @@
 package gUI_1;
 
+
 import java.io.IOException;
 
 import Package_data.Game;
@@ -13,21 +14,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
 
 
 public class Controller {
+
 	@FXML
 	public AnchorPane root;
 	@FXML
 	public TextField username_textfield;
 
-	@FXML
-	public TextField password_textfield;
 	@FXML
 	public TextArea text_area;
 	@FXML
@@ -38,42 +40,37 @@ public class Controller {
 	
 	@FXML
 	public Text hidden_text;
+	@FXML 
+	private PasswordField passwordfield;
+
+	
 	
 	@FXML
 	public void Log_in(ActionEvent event) throws IOException, InterruptedException
 	{
+		
+		
 	
 		User_bag userbag=new User_bag();
-		Game_bag gamebag=new Game_bag();
-		
+	
+
 		//log in successful
-		user newuser=new user(username_textfield.getText(),password_textfield.getText());
-//		if(bag.is_in_userbag(new user(username_textfield.getText(),password_textfield.getText()))==true
-//			&& !username_textfield.getText().equals(""))
+		user newuser=new user(username_textfield.getText(),passwordfield.getText());
+
 		
 		if(userbag.is_in_userbag(newuser)==true)
 		{
 			Temporary_content.set_user(newuser);
-			
-			
-			
-			
-			
-			
-			Temporary_content.set_user(newuser);
 			Stage stage = (Stage) Log_in_btn.getScene().getWindow();
 			AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("getting_information.fxml"));
-			Scene scene= new Scene(pane,600,400);
+			Scene scene= new Scene(pane,600,600);
 		    stage.setScene(scene);
-			
-			
-			
+
 		}
 		//log in unsuccessful
 		else
 		{
 			Thread.sleep(500);
-		
 			hidden_text.setVisible(true);
 			
 		}
@@ -85,7 +82,13 @@ public class Controller {
 	{
 		Stage stage = (Stage) Log_in_btn.getScene().getWindow();
 		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("Registering_page.fxml"));
-		Scene scene= new Scene(pane,500,500);
+		Scene scene= new Scene(pane,600,600);
 	    stage.setScene(scene);
 	}
+
+
+	
+
+
+
 }

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -26,10 +27,10 @@ public class Controller_Registering_page
 	public TextField username_textfield;
 
 	@FXML
-	public TextField password_textfield;
+	public PasswordField password_textfield;
 	
 	@FXML
-	public TextField Confirm_password_textfield;
+	public PasswordField Confirm_password_textfield;
 	@FXML
 	public Text hidden_text;
 	
@@ -58,7 +59,7 @@ public class Controller_Registering_page
 				//		Switches to Log in page
 				Stage stage = (Stage) register_btn.getScene().getWindow();
 				AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-				Scene scene= new Scene(pane,500,500);
+				Scene scene= new Scene(pane,600,600);
 			    stage.setScene(scene);
 			}
 			else
