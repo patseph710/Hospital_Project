@@ -33,12 +33,9 @@ public class Controller_Trial_Pause implements Initializable
     @FXML
     private void updateTime() throws IOException 
     {
-
-    	
      	seconds--;
 	    if (seconds<0){minutes-=1; seconds=59;}
 	    if (minutes<0){minutes=59;seconds=59;}
-	    
 	 
 		String minutesformatted = String.format("%02d", minutes);			
 		String secondsformatted = String.format("%02d", seconds);
@@ -48,14 +45,9 @@ public class Controller_Trial_Pause implements Initializable
 		if(minutes==0&&seconds==0)
 	    {
 			timeline.stop();
-			Stage stage = (Stage) timerLabel.getScene().getWindow();
-			AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("Experiment_page.fxml"));
-			Scene scene= new Scene(pane,600,600);
-		    stage.setScene(scene);
-			
-	    }
+			Go_to("Experiment_page.fxml");
 
-        
+	    }
     }
 	@Override
 	public void initialize(URL url, ResourceBundle rb) 
@@ -64,20 +56,25 @@ public class Controller_Trial_Pause implements Initializable
 		Temporary_content.get_game().set_trial_num(
 					Temporary_content.get_game().get_trial_num()+1);
 		text1.setText("Trial "+Temporary_content.get_game().get_trial_num()+" Over");
-			
-			
 	    timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> {
 				try {
 					updateTime();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} catch (IOException e) {e.printStackTrace();}
 			})); 
 	    
 	     timeline.setCycleCount(Animation.INDEFINITE); 
 	     timeline.play();
-	} 
+	}
+	
+	
+	
+	public void Go_to(String page) throws IOException
+	{
+		Stage stage = (Stage) timerLabel.getScene().getWindow();
+		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource(page));
+		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
+	    stage.setScene(scene);		
+	}
 	
 	
 

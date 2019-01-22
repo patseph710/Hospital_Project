@@ -32,6 +32,7 @@ public class Controller_Experiment implements Initializable
     private static int minutes; 
     private Timeline timeline;
  
+ 
 
     @FXML
     private Label timerLabel;
@@ -56,10 +57,11 @@ public class Controller_Experiment implements Initializable
 		if(minutes==0 && seconds==0)
 	    {
 			timeline.stop();
-			if (Temporary_content.get_game().get_trial_num()<10)
+			if (Temporary_content.get_game().get_trial_num()<Controller_getting_information.total_trials)
 			Go_to("Trial_Pause_page.fxml");
-			else
+			else {
 				Go_to("Experiment_Over_page.fxml");
+			}
 	    }
     }
     //when button is clicked
@@ -94,6 +96,9 @@ public class Controller_Experiment implements Initializable
 		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
 	    stage.setScene(scene);		
 	}
+	
+	
+	
 
 
 

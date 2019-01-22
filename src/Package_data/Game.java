@@ -6,17 +6,11 @@ public class Game implements Serializable
 {
 
 	private static final long serialVersionUID = 1L;
-	private int line_num;
-	private int id_num;
-	private int code_num;
-	private int time_elapsed;
-	private String total_time_elapsed;
+	private int line_num,id_num,code_num,time_elapsed;
 	private String Date;
 	private int num_btn_clicked=0;
 	private String Game_name;
-	private int minutes;
-	private int seconds;
-	private int trial_num;
+	private int minutes,seconds,trial_num;
 	
 	public Game(int id_num,int code_num,String Game_name,
 				int time_elapsed,String Date )

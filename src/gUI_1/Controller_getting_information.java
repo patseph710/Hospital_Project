@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 public class Controller_getting_information 
 {
+	   public static int total_trials=3;
 	
 	@FXML 
 	public TextField id_num_textfield;
@@ -56,14 +57,10 @@ public class Controller_getting_information
 				Integer.parseInt(time_elapse_choicebox.getValue().toString()),			   //time_elapsed
 				User_bag.get_Time_and_Date()));											   //Date
 
-		Temporary_content.get_game().set_total_time_elapsed(10*Integer.parseInt(time_elapse_choicebox.getValue().toString()));
+		Temporary_content.get_game().set_total_time_elapsed(total_trials*Integer.parseInt(time_elapse_choicebox.getValue().toString()));
 			
 	    Go_to("Experiment_page.fxml");
-	   
-	    
-	    
-	    
-	    
+
 	    
 	}
 	

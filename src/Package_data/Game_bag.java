@@ -79,16 +79,20 @@ public class Game_bag implements Serializable
 	public String toString()
 	{
 		
-		String str="";
-		for(int i = 0; i < listgame.size(); i++)
+	String str="Game_Name  id_num  code_num time_elapsed Total_time_elapsed   Btn_clicked Date \n";
+	
+	for(int i = 0; i < listgame.size(); i++)
 		{
  
-			 str=str+ String.format("id_num:%d  code_num:%d time_elapsed:%.50s Total_time_elapsed:%.50s Date:%.50s  \n",
-					 listgame.get(i).get_id_num(),
-					 listgame.get(i).get_code_num(),
-					 listgame.get(i).get_time_elapsed() , 
-			 		 listgame.get(i).get_total_time_elapsed(),
-			 		 listgame.get(i).get_date());
+			 str=str+ String.format("%.50s  %d  %d %.50s %.50s %d %.50s \n",
+					listgame.get(i).get_game_name(),
+			 		listgame.get(i).get_id_num(),						//id num
+					 listgame.get(i).get_code_num(),					//code num
+					 listgame.get(i).get_time_elapsed() , 				//TIME ELAPSED
+			 		 listgame.get(i).get_total_time_elapsed(),			//TOTAL TIME ELAPSED
+			 		 listgame.get(i).getnum_btn_clicked(),				//num btn clicked
+			 		 listgame.get(i).get_date());						//date
+			 
             
             }
 		return str;
