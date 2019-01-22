@@ -39,6 +39,8 @@ public class Controller_getting_information
 	@FXML
 	private void initialize()
 	{
+		back_btn.setVisible(false);					//make it visible to use usernmane and log in page		
+		
 		Game_choicebox.setValue("2");
 		Game_choicebox.setItems(FXCollections.observableArrayList("Game 1","Game 2","Game 3","Game 4"));
 		time_elapse_choicebox.setItems(FXCollections.observableArrayList("2","20","30","60"));
@@ -53,25 +55,39 @@ public class Controller_getting_information
 				Game_choicebox.getValue().toString(),									   //game_choice
 				Integer.parseInt(time_elapse_choicebox.getValue().toString()),			   //time_elapsed
 				User_bag.get_Time_and_Date()));											   //Date
-			
-		
-		
-		
+
 		Temporary_content.get_game().set_total_time_elapsed(10*Integer.parseInt(time_elapse_choicebox.getValue().toString()));
 			
-		Stage stage = (Stage) back_btn.getScene().getWindow();
-		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("Experiment_page.fxml"));
-		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
-	    stage.setScene(scene);		
+	    Go_to("Experiment_page.fxml");
+	   
+	    
+	    
+	    
+	    
+	    
 	}
 	
 
 	@FXML
-	public void Go_back_page() throws IOException
+	public void Go_back_page() throws IOException 
+	{
+		System.out.println("back pushed");
+		Go_to("Experiment_page.fxml");
+	}
+	
+	
+	
+	public void Go_to(String page) throws IOException
 	{
 		Stage stage = (Stage) back_btn.getScene().getWindow();
-		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource(page));
 		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
 	    stage.setScene(scene);		
 	}
+	
+	
+	
+	
+	
+	
 }

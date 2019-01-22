@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gUI_1.Controller_Experiment_Over">
+   <children>
+      <AnchorPane layoutX="-1.0" prefHeight="534.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fx:id="text1" layoutX="148.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXPERIMENT OVER">
+               <font>
+                  <Font size="33.0" />
+               </font></Text>
+            <Slider fx:id="slider" blockIncrement="5.0" layoutX="78.0" layoutY="288.0" majorTickUnit="20.0" min="-100.0" minorTickCount="1" prefHeight="40.0" prefWidth="404.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            <Text fx:id="text2" layoutX="90.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How was you're experience" wrappingWidth="227.51336669921875">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fx:id="slider_choice_num" fontSmoothingType="LCD" layoutX="514.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

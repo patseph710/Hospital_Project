@@ -28,14 +28,10 @@ import javafx.stage.Stage;
 
 public class Controller_Experiment implements Initializable 
 {
-
-
-    private static final int STARTTIME = 0;
     private static int seconds;
     private static int minutes; 
     private Timeline timeline;
-    private final IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
-    
+ 
 
     @FXML
     private Label timerLabel;
@@ -53,83 +49,52 @@ public class Controller_Experiment implements Initializable
      	seconds--;
 	    if (seconds<0){minutes-=1; seconds=59;}
 	    if (minutes<0){minutes=59;seconds=59;}
-	    
-	 
+
 		String minutesformatted = String.format("%02d", minutes);			
 		String secondsformatted = String.format("%02d", seconds);
-		
 		timerLabel.setText(minutesformatted+":"+secondsformatted);
-
-		if(minutes==0&&seconds==0)
+		if(minutes==0 && seconds==0)
 	    {
 			timeline.stop();
-			Stage stage = (Stage) button.getScene().getWindow();
-			AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource("Trial_Pause_page.fxml"));
-			Scene scene= new Scene(pane,600,600);
-		    stage.setScene(scene);
-			
+			if (Temporary_content.get_game().get_trial_num()<10)
+			Go_to("Trial_Pause_page.fxml");
+			else
+				Go_to("Experiment_Over_page.fxml");
 	    }
-
-        
     }
-
-    
     //when button is clicked
     public void handle(ActionEvent event) {
 		if (Light_Off_image.isVisible())
-		{
 			Light_Off_image.setVisible(false);
-		}
 		else
-		{
 			Light_Off_image.setVisible(true);
-		}
-		Temporary_content.get_game().setnum_btn_clicked(1+Temporary_content.get_game().getnum_btn_clicked());
 		
-		System.out.println(Temporary_content.get_game().getnum_btn_clicked());
+		Temporary_content.get_game().setnum_btn_clicked(1+Temporary_content.get_game().getnum_btn_clicked());
+
     }
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) 
 	{
-
 		seconds=Temporary_content.get_game().get_time_elapsed();
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> {
 			try {
 				updateTime();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} catch (IOException e) {e.printStackTrace();}
 		})); 
         timeline.setCycleCount(Animation.INDEFINITE); 
         timeline.play();
 
 	} 
+	
+	public void Go_to(String page) throws IOException
+	{
+		Stage stage = (Stage) button.getScene().getWindow();
+		AnchorPane pane = (AnchorPane)FXMLLoader.load(getClass().getResource(page));
+		Scene scene= new Scene(pane,stage.getScene().getWidth(),stage.getScene().getHeight());
+	    stage.setScene(scene);		
+	}
 
-    
 
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
